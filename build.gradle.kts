@@ -1,5 +1,6 @@
-import dev.silenium.gradle.conventions.publishing
 import dev.silenium.gradle.conventions.BaseExtension
+import dev.silenium.gradle.conventions.publishing
+import org.jetbrains.dokka.gradle.DokkaExtension
 
 plugins {
     dev.silenium.gradle.conventions.jvm
@@ -38,5 +39,11 @@ allprojects {
                     }
                 }
             }
+
+        extensions.findByType<DokkaExtension>()?.apply {
+            dokkaPublications.configureEach {
+                failOnWarning = false
+            }
+        }
     }
 }
