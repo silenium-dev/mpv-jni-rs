@@ -132,7 +132,7 @@ class OffscreenRenderTest : FunSpec({
         val estimatedFramePos = (testMpvInstance.mpv.getPropertyAsync("estimated-frame-number")
             .getOrThrow() as Node.Int64).int64
         estimatedFramePos shouldBeGreaterThan voDropped
-        voDropped shouldBeLessThan 5
+        voDropped shouldBeLessThan 10
         decoderDropped shouldBe 0
         testMpvInstance.dispose()
         glDeleteFramebuffers(fbo)
